@@ -10,7 +10,9 @@ lein run
 ```
 
 To login, an initial user is created:
+
 username :: admin
+
 password :: admin
 
 ## License
