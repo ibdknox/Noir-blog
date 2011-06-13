@@ -1,6 +1,6 @@
 # Noir blog
 
-This is a fully functioning blog, that serves as an example website written in noir.
+This is a fully functioning blog that serves as an example website written in noir.
 
 ## Usage
 
@@ -12,7 +12,6 @@ lein run
 To login, an initial user is created:
 
 username :: admin
-
 password :: admin
 
 ## License
