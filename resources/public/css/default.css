@@ -1,0 +1,36 @@
+/* Site specific styles. */
+body { font-family: Verdana; background: #2a2b2b; color: #d1d9e1; }
+h1 { font-size:32px; color: #004c65; paddin:55px 0 0 0;}
+h2 { font-size:24px; }
+ul {list-style:none; }
+a { color: #56BF90; text-decoration:none;}
+input { background:#3a3b3b; border:2px solid #4a4b4b; border-radius:8px; padding:10px; width: 590px; color:#babbbb; font-size:14px; }
+textarea { background:#3a3b3b; border:2px solid #4a4b4b; border-radius:8px; padding:10px; width: 590px; color:#babbbb; height:350px; font-size:14px; }
+
+input + input { margin-top:10px; }
+input + textarea { margin-top:10px; }
+
+
+#wrapper {width:800px; margin: 0 auto; padding-top:50px; }
+#wrapper > div.content { float:left; display:inline; padding-bottom:100px; }
+
+#header { float:left; display:inline; width:100%; margin-bottom:30px;}
+#header h1 {float:left; display:inline; color:#56BF90; }
+#header h1 a { color:#56BF90; }
+#header ul {float:right; display:inline; margin-top:15px;}
+#header ul li {float:left; display:inline; margin-left:15px;}
+
+ul.actions {float:right; display:inline; width:140px; }
+ul.actions li a { display:block; background:#3a3b3b; border-radius:5px; text-align:center; padding:5px; margin-bottom:10px; }
+ul.actions li a:hover { background:#4a4b4b;}
+ul.items { float:left; display:inline; width:600px; }
+ul.items li a { float:left; width:590px; display:inline; padding:8px 15px; background: #3a3b3b; color: #b1b9c1; border-radius: 5px; margin-bottom:10px; }
+
+ul.posts { float:left; display:inline; }
+ul.posts li.post { float:left; display:inline; width: 760px; padding:15px; background: #3a3b3b;  border-radius: 10px; margin-bottom:20px; border:2px solid #4a4b4b; }
+ul.posts li.post h2 { float:left; display:inline; width:660px; margin-bottom:10px; }
+ul.posts li.post .datetime {float:right; display:inline; font-size:11px; color:#8a8b8b; }
+ul.posts li.post .content { float:left; display:inline; width:660px; color:#babbbb;}
+ul.posts li.post .content p { margin-bottom:18px; }
+
+.submit { display:none; }
