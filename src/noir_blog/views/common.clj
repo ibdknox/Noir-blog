@@ -5,11 +5,7 @@
 
 ;; Links and includes
 
-(def home-links [{:url "/blog/" :cls "bloglink" :text "Blog"}
-                 {:url "/projects" :cls "projectlink" :text "Projects"}
-                 {:url "/contact" :cls "contactlink" :text "Contact"}])
-
-(def vertical-links [{:url "/blog/admin/" :text "Admin"}])
+(def main-links [{:url "/blog/admin/" :text "Admin"}])
 
 (def admin-links [{:url "/blog/" :text "Blog"}
                   {:url "/blog/admin/" :text "Posts"}
@@ -43,7 +39,7 @@
                  [:div#header
                   [:h1 (link-to "/blog/" "The Noir blog")]
                   [:ul.nav
-                   (map link-item vertical-links)]]
+                   (map link-item main-links)]]
                  content]]]))
 
 (defpartial admin-layout [& content]
