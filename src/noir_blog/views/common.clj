@@ -4,11 +4,10 @@
        hiccup.page-helpers))
 
 ;; Links and includes
-
-(def main-links [{:url "/blog/admin/" :text "Admin"}])
+(def main-links [{:url "/blog/admin" :text "Admin"}])
 
 (def admin-links [{:url "/blog/" :text "Blog"}
-                  {:url "/blog/admin/" :text "Posts"}
+                  {:url "/blog/admin" :text "Posts"}
                   {:url "/blog/admin/users" :text "Users"}
                   {:url "/blog/logout" :text "Logout"}])
 
@@ -49,7 +48,7 @@
                [:div#wrapper
                 [:div.content
                  [:div#header
-                  [:h1 (link-to "/blog/admin/" "Admin")]
+                  [:h1 (link-to "/blog/admin" "Admin")]
                   [:ul.nav
                    (map link-item admin-links)]]
                  content]]]))

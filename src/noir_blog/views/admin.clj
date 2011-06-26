@@ -58,7 +58,7 @@
 
 (defpage [:post "/blog/login"] {:as user}
          (if (users/login! user)
-           (resp/redirect "/blog/admin/")
+           (resp/redirect "/blog/admin")
             (render "/blog/login" user)))
 
 (defpage "/blog/logout" {}
@@ -67,7 +67,7 @@
 
 ;; Post pages
 
-(defpage "/blog/admin/" {}
+(defpage "/blog/admin" {}
          (common/admin-layout
            [:ul.actions
             (map action-item post-actions)]
@@ -84,7 +84,7 @@
 
 (defpage [:post "/blog/admin/post/add"] {:as post}
            (if (posts/add! post)
-             (resp/redirect "/blog/admin/")
+             (resp/redirect "/blog/admin")
              (render "/blog/admin/post/add" post)))
 
 (defpage "/blog/admin/post/edit/:id" {:keys [id]}
@@ -99,12 +99,12 @@
 
 (defpage [:post "/blog/admin/post/edit/:id"] {:keys [id] :as post}
          (if (posts/edit! post)
-           (resp/redirect "/blog/admin/")
+           (resp/redirect "/blog/admin")
            (render (str "/blog/admin/post/edit/" id) post)))
 
 (defpage "/blog/admin/post/remove/:id" {:keys [id]}
          (posts/remove! id)
-         (resp/redirect "/blog/admin/"))
+         (resp/redirect "/blog/admin"))
 
 ;; User pages
 
