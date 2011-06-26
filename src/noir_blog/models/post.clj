@@ -29,7 +29,7 @@
   (id->post (db/get-in :post-monikers [moniker])))
 
 (defn get-page [page]
-  (let [page-num (- (Integer. page) 1) ;; make it 1-based indexing
+  (let [page-num (dec (Integer. page)) ;; make it 1-based indexing
         prev (* page-num posts-per-page)]
     (ids->posts (take posts-per-page (drop prev (db/get :post-ids))))))
 

@@ -18,14 +18,17 @@
 
 ;; Partials
 
+(defpartial error-text [errors]
+            [:p (string/join "<br/>" errors)])
+
 (defpartial post-fields [{:keys [title body]}]
-            (vali/on-error :title #(html [:p (string/join "<br/>" %)]))
+            (vali/on-error :title error-text)
             (text-field {:placeholder "Title"} :title title)
-            (vali/on-error :body #(html [:p (string/join "<br/>" %)]))
+            (vali/on-error :body error-text)
             (text-area {:placeholder "Body"} :body body))
 
 (defpartial user-fields [{:keys [username] :as usr}]
-            (vali/on-error :username #(html [:p.error (string/join "<br/>" %)]))
+            (vali/on-error :username error-text)
             (text-field {:placeholder "Username"} :username username)
             (password-field {:placeholder "Password"} :password))
 
@@ -44,17 +47,19 @@
 ;; Admin pages
 
 ;;force you to be an admin to get to the admin section
-(pre-route "/blog/admin/*" {}
+(pre-route "/blog/admin*" {}
            (when-not (users/admin?)
              (resp/redirect "/blog/login")))
 
 (defpage "/blog/login" {:as user}
-         (common/main-layout
-           (form-to [:post "/blog/login"]
-                    [:ul.actions
-                     [:li (link-to {:class "submit"} "/" "Login")]]
-                    (user-fields user)
-                    (submit-button {:class "submit"} "submit"))))
+         (if (users/admin?)
+           (resp/redirect "/blog/admin")
+           (common/main-layout
+             (form-to [:post "/blog/login"]
+                      [:ul.actions
+                       [:li (link-to {:class "submit"} "/" "Login")]]
+                      (user-fields user)
+                      (submit-button {:class "submit"} "submit")))))
 
 (defpage [:post "/blog/login"] {:as user}
          (if (users/login! user)
