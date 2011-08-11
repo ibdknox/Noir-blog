@@ -5,8 +5,9 @@
 (server/load-views "src/noir_blog/views/")
 
 (defn -main [& m]
-  (let [mode (or (first m) :dev)]
+  (let [mode (or (first m) :dev)
+        port (Integer. (get (System/getenv) "PORT" "8080"))]
     (models/initialize)
-    (server/start 8080 {:mode (keyword mode)
+    (server/start port {:mode (keyword mode)
                         :ns 'noir-blog})))
 
