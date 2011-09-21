@@ -105,7 +105,7 @@
 (defpage [:post "/blog/admin/post/edit/:id"] {:keys [id] :as post}
          (if (posts/edit! post)
            (resp/redirect "/blog/admin")
-           (render (str "/blog/admin/post/edit/" id) post)))
+           (render "/blog/admin/post/edit/:id" post)))
 
 (defpage "/blog/admin/post/remove/:id" {:keys [id]}
          (posts/remove! id)
