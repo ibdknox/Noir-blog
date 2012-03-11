@@ -135,7 +135,6 @@
            (render "/blog/admin/user/add" neue-user)))
 
 (defpage "/blog/admin/user/edit/:old-name" {:keys [old-name]}
-         (println "old-name" old-name)
          (let [user (users/get-username old-name)]
            (common/admin-layout
              (form-to [:post (str "/blog/admin/user/edit/" old-name)]
@@ -145,7 +144,6 @@
                       (user-fields user)))))
 
 (defpage [:post "/blog/admin/user/edit/:old-name"] {:keys [old-name] :as user}
-         (println "Old-name" old-name "user" user)
          (if (users/edit! user)
            (resp/redirect "/blog/admin/users")
            (render "/blog/admin/user/edit/:old-name" user)))

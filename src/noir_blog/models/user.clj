@@ -56,7 +56,6 @@
 
 (defn edit! [{:keys [username old-name password]}]
   (let [user {:username username :password password}]
-    (println "edit user" username "o" old-name "p" password)
     (if (= username old-name)
       (when (valid-psw? password)
         (-> user (prepare) (store!)))
